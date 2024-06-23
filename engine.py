@@ -12,7 +12,8 @@ class MyTrainer:
         self.save_path = save_path
         self.total_train_loss = []
         self.total_valid_loss = []
-
+        if not os.path.exists(self.save_path): 
+            os.makedirs(self.save_path)
     def train_epoch(self, train_loader: DataLoader, epoch):
         self.model.train()
         train_loss = []
